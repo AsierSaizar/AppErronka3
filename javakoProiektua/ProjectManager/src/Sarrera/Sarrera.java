@@ -6,12 +6,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Langileak.Langileak;
+import Control.Control;
+
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -55,11 +56,9 @@ public class Sarrera extends JFrame {
 		JButton btnNewButton = new JButton("Sartu");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				 Langileak langilea = new Langileak(erabiltzailea.getText(),pasahitza.getText(),Integer.parseInt(proiektua.getText()));
-					langilea.existitzenDa(langilea);
-				
-			}
+				    Control controla = new Control();
+					controla.erabiltzaileaSortu(erabiltzailea.getText(),pasahitza.getText(),Integer.parseInt(proiektua.getText()));
+				}
 		});
 		btnNewButton.setBounds(89, 166, 257, 21);
 		contentPane.add(btnNewButton);
