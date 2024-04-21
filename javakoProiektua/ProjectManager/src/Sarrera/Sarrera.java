@@ -6,8 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Control.Control;
-
+import ControlSarrera.ControlSarrera;
+import Erabiltzaileak.Erabiltzaileak;
+import Menua.Menua;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -56,10 +57,18 @@ public class Sarrera extends JFrame {
 		JButton btnNewButton = new JButton("Sartu");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				    Control controla = new Control();
-					controla.erabiltzaileaSortu(erabiltzailea.getText(),pasahitza.getText(),Integer.parseInt(proiektua.getText()));
-				}
+				    ControlSarrera controla = new ControlSarrera();
+				    Erabiltzaileak erabiltzailea2 = controla.erabiltzaileaSartu(erabiltzailea.getText(),pasahitza.getText(),Integer.parseInt(proiektua.getText()));
+					if(null != erabiltzailea2) {
+						Menua menua = new Menua(erabiltzailea2);
+						menua.setVisible(true);
+						Sarrera.this.setVisible(false);	
+					}
+					
+			}
 		});
+		
+		
 		btnNewButton.setBounds(89, 166, 257, 21);
 		contentPane.add(btnNewButton);
 		
