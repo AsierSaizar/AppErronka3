@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -66,6 +67,50 @@ public abstract class Erabiltzaileak  {
 		this.proiektua = proiektua;
 		this.izena = izena;
 		this.abizena = abizena;
-	}	
+	}
+
+	public static ArrayList<Langileak> langileakLortu(Connection conexioa) throws SQLException {
+		ArrayList<Langileak> erabiltzialeak = new ArrayList<>();
+		int i=0;
+		
+		Statement stat=conexioa.createStatement();   
+        ResultSet res=stat.executeQuery("select * from erronka3.langileak;");
+ 
+        String[] array = new String[7];
+       
+       
+            while(res.next()) {
+            	 String nan = res.getString(2); //nan
+                 String pasahitza = res.getString(3); //pasahitza
+                 String izena = res.getString(4); //izena
+                 String abizena = res.getString(5); //abizena
+                 String lanPostua = res.getString(6); //lanPostua
+                 int proiektua = res.getInt(7); //proiektua
+                 
+                Langileak langilea = new Langileak(nan, pasahitza, proiektua, lanPostua, izena, abizena);
+                erabiltzialeak.add(langilea);
+  
+            }
+        
+		return erabiltzialeak;
+	}
+
+	public static Erabiltzaileak zerDa(ArrayList<Langileak> erabiltzaileak, String nan, String pasahitza, int proiektua) {
+		// TODO Auto-generated method stub
+		for (Langileak erabiltzailea : erabiltzaileak) {
+            if(erabiltzailea.getNan().equals(nan)&& erabiltzailea.getPasahitza().equals(pasahitza) && erabiltzailea.getLanPostua().equals("Admin") && erabiltzailea.getProiektua() == proiektua) {
+            	Administratzailea admin = new Administratzailea(nan, pasahitza, proiektua, "Admin", erabiltzailea.getIzena(), erabiltzailea.getAbizena());
+            	System.out.println("Administratzailea");
+    			return admin;
+            } else if(erabiltzailea.getNan().equals(nan)&& erabiltzailea.getPasahitza().equals(pasahitza) && erabiltzailea.getLanPostua().equals("Langilea") && erabiltzailea.getProiektua() == proiektua) {
+            	Langileak langilea = new Langileak(nan, pasahitza, proiektua, "Langilea", erabiltzailea.getIzena(), erabiltzailea.getAbizena());
+            	System.out.println("Langilea");
+                return langilea;
+            }
+          
+		}
+		return null;  
+	}
 }
+
 

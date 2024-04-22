@@ -4,7 +4,10 @@ package Langileak;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import Conexioa.Conexioa;
 import Erabiltzaileak.Erabiltzaileak;
@@ -50,11 +53,6 @@ public class Langileak extends Erabiltzaileak {
 	        throw e;
 	    }
 	}
-	
-	
-
-	
-	
-	
+		
  }
 

@@ -16,20 +16,26 @@ import java.awt.event.ActionEvent;
 import ControlAdminakEgin.ControlAdminakEgin;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 public class AdminakEgin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
-
+	private JTextField textField;
+	private JLabel lblNewLabel;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+	private ControlAdminakEgin controlAdminEgin = new ControlAdminakEgin();
 	/**
 	 * Create the frame.
 	 * @param menua 
 	 */
 	public AdminakEgin(Menua menua) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 690, 463);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -43,7 +49,7 @@ public class AdminakEgin extends JFrame {
 		JButton taulaIkusi = new JButton("Taula ikusi");
 		taulaIkusi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ControlAdminakEgin controlAdminEgin = new ControlAdminakEgin();
+				
 				try {
 					controlAdminEgin.erabiltzaileZerrendaErakutsi(table);
 				} catch (SQLException e1) {
@@ -52,12 +58,12 @@ public class AdminakEgin extends JFrame {
 				}
 			}
 		});
-		taulaIkusi.setBounds(326, 23, 85, 21);
+		taulaIkusi.setBounds(50, 228, 151, 21);
 		contentPane.add(taulaIkusi);
 		
 		// Envolver el JTable en un JScrollPane
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(34, 25, 223, 188);
+        scrollPane.setBounds(50, 25, 223, 188);
 
         // Configurar el JScrollPane (Opcional)
        
@@ -65,6 +71,32 @@ public class AdminakEgin extends JFrame {
 
         // Añadir el JScrollPane al JFrame
         getContentPane().add(scrollPane);
+        
+        textField = new JTextField();
+        textField.setBounds(322, 47, 162, 19);
+        contentPane.add(textField);
+        textField.setColumns(10);
+        
+        lblNewLabel = new JLabel("NAN:");
+        lblNewLabel.setBounds(283, 50, 45, 13);
+        contentPane.add(lblNewLabel);
+        
+        btnNewButton = new JButton("Admin bihurtu");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		controlAdminEgin.adminBihurtu();
+        	}
+        });
+        btnNewButton.setBounds(304, 87, 151, 38);
+        contentPane.add(btnNewButton);
+        
+        btnNewButton_1 = new JButton("Langile bihurtu");
+        btnNewButton_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        btnNewButton_1.setBounds(304, 135, 151, 38);
+        contentPane.add(btnNewButton_1);
 
         // Mostrar la ventana
         AdminakEgin.this.setVisible(true);

@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 
 
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class Sarrera extends JFrame {
@@ -58,9 +59,19 @@ public class Sarrera extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				    ControlSarrera controla = new ControlSarrera();
-				    Erabiltzaileak erabiltzailea2 = controla.erabiltzaileaSartu(erabiltzailea.getText(),pasahitza.getText(),Integer.parseInt(proiektua.getText()));
-					if(null != erabiltzailea2) {
-						Menua menua = new Menua(erabiltzailea2);
+					 Erabiltzaileak langilea = null;
+					try {
+						langilea = controla.erabiltzaileaSartu(erabiltzailea.getText(),pasahitza.getText(),Integer.parseInt(proiektua.getText()));
+					} catch (NumberFormatException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+					if(null != langilea) {
+						Menua menua = new Menua(langilea);
 						menua.setVisible(true);
 						Sarrera.this.setVisible(false);	
 					}

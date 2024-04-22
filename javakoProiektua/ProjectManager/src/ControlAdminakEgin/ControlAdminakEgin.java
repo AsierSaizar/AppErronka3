@@ -6,11 +6,14 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import Conexioa.Conexioa;
+import Erabiltzaileak.Erabiltzaileak;
+import Langileak.Langileak;
 
 public class ControlAdminakEgin {
 
@@ -28,39 +31,37 @@ public class ControlAdminakEgin {
   	   	table.addColumn("proiektua");
 		try (Connection conexioa = (Connection) DriverManager.getConnection(Conexioa.DB_URL, Conexioa.DB_USER, Conexioa.DB_PASSWORD)) {
 
-	    	try 
-	    	{
-	    	    Statement stat= conexioa.createStatement(); 
-	    	    ResultSet res=stat.executeQuery("select nan,izena,abizenak,lanPostua,proiektua from erronka3.langileak;");
-	    	    ResultSetMetaData rsmd = res.getMetaData();
-	     	    
-	    	 
-	    	   String[] array = new String[10];
-	    	    
-	    	   taula.setModel(table);
-	    	   try {
-	    			while(res.next())
-	    			{
-	    				int i=0;
-	    				while(i < 5) {	
-	    			    array[i] = res.getString(i + 1);
-	    			    i++;
-	    				}
-	    				table.addRow(array);
-	    			}
-	    		} catch (SQLException e) {
-	    			// TODO Auto-generated catch block
-	    			e.printStackTrace();
+	    	
+	    		if (conexioa != null) {
+		        	ArrayList<Langileak> erabiltzaileak = Erabiltzaileak.langileakLortu(conexioa); 
+		        	taula.setModel(table);
+			    	  
+			    		   for (Langileak erabiltzailea : erabiltzaileak){
+			    			   
+			    		   String array[] = new String[5];
+			    		
+			    			    array[0] = erabiltzailea.getNan();
+			    			    array[1] = erabiltzailea.getIzena();
+			    			    array[2] = erabiltzailea.getAbizena();
+			    			    array[3] = erabiltzailea.getLanPostua();
+			    			    array[4] = String.valueOf(erabiltzailea.getProiektua());
+			    			   
+			    				table.addRow(array);
+			    			}
 	    		}
-	    	    taula.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		      
+	    	 
+	    	
 	    	    
-	    	}
-	    	catch(Exception ex)
-	    	{       
-	    	    System.out.println(ex);
-	    	}
-	   
-    	    
+	    	   
+	    		
+	    	    taula.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+	         
 		}
+	}
+
+	public void adminBihurtu() {
+		// TODO Auto-generated method stub
+		
 	}
 }
