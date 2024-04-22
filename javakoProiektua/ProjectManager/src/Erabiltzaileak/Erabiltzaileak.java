@@ -15,10 +15,28 @@ import Administratzailea.Administratzailea;
 public abstract class Erabiltzaileak  {
 	private String nan;
 	private String pasahitza;
+	private String izena;
+	private String abizena;
 	int proiektua;
 	
 	public String getNan() {
 		return nan;
+	}
+
+	public String getIzena() {
+		return izena;
+	}
+
+	public void setIzena(String izena) {
+		this.izena = izena;
+	}
+
+	public String getAbizena() {
+		return abizena;
+	}
+
+	public void setAbizena(String abizena) {
+		this.abizena = abizena;
 	}
 
 	public void setNan(String nan) {
@@ -41,11 +59,13 @@ public abstract class Erabiltzaileak  {
 		this.proiektua = proiektua;
 	}
 
-	public Erabiltzaileak(String nan, String pasahitza, int proiektua) {
+	public Erabiltzaileak(String nan, String pasahitza, int proiektua, String izena, String abizena) {
 		super();
 		this.nan = nan;
 		this.pasahitza = pasahitza;
 		this.proiektua = proiektua;
+		this.izena = izena;
+		this.abizena = abizena;
 	}	
 }
 

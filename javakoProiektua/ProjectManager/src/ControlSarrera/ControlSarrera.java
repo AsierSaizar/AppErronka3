@@ -37,18 +37,19 @@ public class ControlSarrera {
 		                    int proiektu = Integer.parseInt(array[3]);
 		                
 		                    if(nan.equals(array[0]) && pasahitza.equals(array[1]) && array[2].equals("Admin") && proiektu == proiektua) {
-		                    	Administratzailea admin = new Administratzailea(nan, pasahitza, proiektua, "Admin");
+		                    	Administratzailea admin = new Administratzailea(nan, pasahitza, proiektua, "Admin", null, null);
 		                    	System.out.println("Administratzailea");
 		            			return admin;
 		                    } else if(nan.equals(array[0]) && pasahitza.equals(array[1]) && array[2].equals("Langilea") && proiektu == proiektua) {
-		                    	Langileak langilea = new Langileak(nan, pasahitza, proiektua, "Langilea");
+		                    	Langileak langilea = new Langileak(nan, pasahitza, proiektua, "Langilea", null, null);
 		                    	System.out.println("Langilea");
 		                        return langilea;
 		                    }
-		                    else {
-		                    	JOptionPane.showMessageDialog(null, "Gaizki sartu duzu informazioa");
-		                    }
-		                }
+		                  
+		                }  
+		              
+	                     JOptionPane.showMessageDialog(null, "Gaizki sartu duzu informazioa");
+	                  
 		              
 		            } catch (SQLException e) {
 		            	JOptionPane.showMessageDialog(null, "Berriro saiatu");

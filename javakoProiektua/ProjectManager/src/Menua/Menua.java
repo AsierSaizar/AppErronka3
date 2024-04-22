@@ -1,6 +1,8 @@
 package Menua;
 import ControlMenua.ControlMenua;
 import Erabiltzaileak.Erabiltzaileak;
+import LangileakGehitu.LangileakGehitu;
+import Sarrera.Sarrera;
 
 import java.awt.EventQueue;
 
@@ -60,7 +62,9 @@ public class Menua extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(ControlMenua.adminDa(erabiltzailea) == 1) {
 					JOptionPane.showMessageDialog(null, "Admin zara, oso ondo");
-					
+					LangileakGehitu langileakGehitu = new LangileakGehitu();
+					langileakGehitu.setVisible(true);
+					Menua.this.setVisible(false);	
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Opzio hau bakarrik adminentza da");

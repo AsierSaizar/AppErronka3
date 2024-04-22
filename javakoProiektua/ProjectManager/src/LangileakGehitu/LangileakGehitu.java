@@ -8,8 +8,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import ControlLangileakKontratatu.ControlLangileakKontratatu;
 
@@ -27,6 +29,7 @@ public class LangileakGehitu extends JFrame {
 	private JLabel lblAbizena;
 	private JLabel lblLanpostua;
 	private JLabel lblProiektua;
+	private ButtonGroup group;
 
 	/**
 	 * Create the frame.
@@ -95,14 +98,28 @@ public class LangileakGehitu extends JFrame {
 		contentPane.add(admin);
 		
 		JRadioButton langilea = new JRadioButton("Langilea");
-		admin.setActionCommand("Langilea");
+		langilea.setActionCommand("Langilea");
 		langilea.setBounds(212, 158, 103, 21);
 		contentPane.add(langilea);
+		
+		group = new ButtonGroup();
+        group.add(admin);
+        group.add(langilea);
 		
 		JButton btnNewButton = new JButton("Langilea Kontratatu");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ControlLangileakKontratatu.kontratatu(nan.getText(),izena.getText(),abizena.getText(),admin.getActionCommand(),langilea.getActionCommand(),proiektua.getText());
+				String selectedRole = null;
+                if (group.getSelection() != null) {
+                    selectedRole = group.getSelection().getActionCommand();
+    				try {
+						ControlLangileakKontratatu.kontratatu(nan.getText(),pasahitza.getText(),izena.getText(),abizena.getText(),selectedRole,Integer.valueOf(proiektua.getText()));
+					} catch (NumberFormatException | SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+                }
 			}
 		});
 		btnNewButton.setBounds(133, 232, 180, 21);
