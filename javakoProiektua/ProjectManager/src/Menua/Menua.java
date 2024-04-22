@@ -41,7 +41,7 @@ public class Menua extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 					Baneatu baneatu = new Baneatu(Menua.this);
 					baneatu.setVisible(true);
-					Menua.this.setVisible(false);	
+					Menua.this.setVisible(false);
 				
 			}
 		});

@@ -60,15 +60,15 @@ public class ControlBaneatu {
 	    	    System.out.println(ex);
 	    	}
 	   
-    	    
+    	    	
 		}
 	}
 
-	public void baneatu(String id, String ban) {
-		if (ban=="0") {
-			
-		}else if (ban=="1") {
-			
+	public void baneatu(String id, String ezizena, String emaila, String pasahitza, int Dirua, boolean ban) {
+		if (ban==false) {
+			System.out.println("falseee");
+		}else if (ban==true) {
+			System.out.println("trueeee");
 		}
 		
 	}
