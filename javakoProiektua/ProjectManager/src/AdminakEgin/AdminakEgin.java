@@ -24,10 +24,7 @@ public class AdminakEgin extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
-	private JTextField textField;
-	private JLabel lblNewLabel;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
+	private JButton adminLangile;
 	private ControlAdminakEgin controlAdminEgin = new ControlAdminakEgin();
 	/**
 	 * Create the frame.
@@ -72,31 +69,20 @@ public class AdminakEgin extends JFrame {
         // Añadir el JScrollPane al JFrame
         getContentPane().add(scrollPane);
         
-        textField = new JTextField();
-        textField.setBounds(322, 47, 162, 19);
-        contentPane.add(textField);
-        textField.setColumns(10);
-        
-        lblNewLabel = new JLabel("NAN:");
-        lblNewLabel.setBounds(283, 50, 45, 13);
-        contentPane.add(lblNewLabel);
-        
-        btnNewButton = new JButton("Admin bihurtu");
-        btnNewButton.addActionListener(new ActionListener() {
+        adminLangile = new JButton("Admin/Langile bihurtu");
+        adminLangile.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		controlAdminEgin.adminBihurtu();
+        		int row = table.getSelectedRow();
+        		try {
+					controlAdminEgin.retrieveAndProcessRowData(row, table);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}	
         	}
         });
-        btnNewButton.setBounds(304, 87, 151, 38);
-        contentPane.add(btnNewButton);
-        
-        btnNewButton_1 = new JButton("Langile bihurtu");
-        btnNewButton_1.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	}
-        });
-        btnNewButton_1.setBounds(304, 135, 151, 38);
-        contentPane.add(btnNewButton_1);
+        adminLangile.setBounds(304, 87, 180, 38);
+        contentPane.add(adminLangile);
 
         // Mostrar la ventana
         AdminakEgin.this.setVisible(true);

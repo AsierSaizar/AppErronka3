@@ -53,4 +53,31 @@ public class Administratzailea extends Erabiltzaileak {
 	    
 	}
 
+	public void langileBihurtu() {
+		// TODO Auto-generated method stub
+		this.lanPostua = "Langilea";	
+	}
+
+	public void update() throws SQLException {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE erronka3.langileak SET lanPostua = ? WHERE nan = ?";
+
+		try (Connection conexion = DriverManager.getConnection(Conexioa.DB_URL, Conexioa.DB_USER, Conexioa.DB_PASSWORD);
+		     PreparedStatement stmt = conexion.prepareStatement(sql)) {
+		    
+		    // Establecer los parámetros del PreparedStatement
+		    stmt.setString(1, "Langilea"); // Asume que 'lanPostua' es un campo de texto
+		    stmt.setString(2, this.getNan()); // Asume que 'nan' es un campo de texto, ajusta si es numérico
+
+		    // Ejecutar la actualización
+		    int affectedRows = stmt.executeUpdate();
+		    System.out.println("Filas afectadas: " + affectedRows);
+		    
+		} catch (SQLException e) {
+		    System.out.println("Errore bat dago");
+		    e.printStackTrace();
+		    throw e; // Re-lanzar la excepción puede estar bien dependiendo del contexto de manejo de errores
+		}
+	}
+
 }
