@@ -5,8 +5,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import AdminakEgin.AdminakEgin;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -14,6 +18,8 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import ControlLangileakKontratatu.ControlLangileakKontratatu;
+import ControlMenua.ControlMenua;
+import Menua.Menua;
 
 public class LangileakGehitu extends JFrame {
 
@@ -30,11 +36,12 @@ public class LangileakGehitu extends JFrame {
 	private JLabel lblLanpostua;
 	private JLabel lblProiektua;
 	private ButtonGroup group;
+	private JButton atzera;
 
 	/**
 	 * Create the frame.
 	 */
-	public LangileakGehitu() {
+	public LangileakGehitu(Menua menua) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -124,5 +131,19 @@ public class LangileakGehitu extends JFrame {
 		});
 		btnNewButton.setBounds(133, 232, 180, 21);
 		contentPane.add(btnNewButton);
+		
+		atzera = new JButton("Atzera");
+		atzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+					JOptionPane.showMessageDialog(null, "Admin zara, oso ondo");
+					menua.setVisible(true);
+					LangileakGehitu.this.setVisible(false);
+			
+			
+			}
+		});
+		atzera.setBounds(10, 232, 85, 21);
+		contentPane.add(atzera);
 	}
 }
