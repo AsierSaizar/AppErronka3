@@ -6,7 +6,27 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/asier/Desktop/APPerronka3/mysql-connector-j-8.1.0/mysql-connector-j-8.1.0.jar">
+	<classpathentry kind="lib" path="C:/xampp/htdocs/GarapenIngurunea/ProjectManager/JAVA/AppErronka3/mysql-connector-j-8.1.0/mysql-connector-j-8.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/GarapenIngurunea/ProjectManager/JAVA/AppErronka3/commons-logging-1.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/GarapenIngurunea/ProjectManager/JAVA/AppErronka3/fontbox-2.0.19.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/GarapenIngurunea/ProjectManager/JAVA/AppErronka3/pdfbox-2.0.19.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/GarapenIngurunea/ProjectManager/JAVA/AppErronka3/pdfbox-tools-2.0.19.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

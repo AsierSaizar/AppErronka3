@@ -2,6 +2,7 @@ package Menua;
 import ControlMenua.ControlMenua;
 import Erabiltzaileak.Erabiltzaileak;
 import LangileakGehitu.LangileakGehitu;
+import Nomina.Nomina;
 import Sarrera.Sarrera;
 
 import java.awt.EventQueue;
@@ -81,15 +82,6 @@ public class Menua extends JFrame {
 		btnNewButton_3.setBounds(126, 183, 187, 21);
 		contentPane.add(btnNewButton_3);
 		
-		JButton btnNewButton_4 = new JButton("Nominak egin");
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnNewButton_4.setBounds(126, 214, 187, 21);
-		contentPane.add(btnNewButton_4);
-		
 		JButton btnNewButton_5 = new JButton("Administratzaileak sortu");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -122,5 +114,28 @@ public class Menua extends JFrame {
 		});
 		btnNewButton_2_1.setBounds(126, 137, 187, 21);
 		contentPane.add(btnNewButton_2_1);
+		
+		
+		
+		
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		        System.out.println("Button clicked!"); // Añadir esta línea para depuración
+
+				if(ControlMenua.adminDa(erabiltzailea) == 1) {
+					JOptionPane.showMessageDialog(null, "Admin zara, oso ondo");
+					Nomina nomina = new Nomina(Menua.this);
+					nomina.setVisible(true);
+					Menua.this.setVisible(false);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Opzio hau bakarrik adminentza da");
+				}
+			}
+		});
+		btnNewButton.setBounds(126, 214, 187, 21);
+		contentPane.add(btnNewButton);
 	}
 }

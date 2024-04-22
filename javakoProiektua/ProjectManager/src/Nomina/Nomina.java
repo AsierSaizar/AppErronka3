@@ -1,65 +1,74 @@
 package Nomina;
 
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
-import com.itextpdf.kernel.pdf.*;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Paragraph;
+import javax.swing.border.EmptyBorder;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
+import ControlNomina.ControlNomina;
+import Menua.Menua;
 
 public class Nomina extends JFrame {
-    private JTextField nameField;
-    private JTextField periodField;
-    private JTextField amountField;
+
+    private static final long serialVersionUID = 1L;
+    private JPanel contentPane;
+    private JTextField izena;
+    private JTextField ordainketaPeriodoa;
+    private JTextField diruKantitatea;
     private JButton createPdfButton;
 
-    public Nomina() {
-        super("Nomina");
+ 
+    public Nomina(Menua menua) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300, 200);
-        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+        setBounds(100, 100, 450, 300);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
 
-        nameField = new JTextField();
-        periodField = new JTextField();
-        amountField = new JTextField();
+        izena = new JTextField();
+        izena.setBounds(5, 18, 426, 19);
+        ordainketaPeriodoa = new JTextField();
+        ordainketaPeriodoa.setBounds(5, 50, 426, 19);
+        diruKantitatea = new JTextField();
+        diruKantitatea.setBounds(5, 82, 426, 19);
 
-        createPdfButton = new JButton("Create PDF");
-        createPdfButton.addActionListener(e -> createPdf());
+        createPdfButton = new JButton("Nomina egin");
+        createPdfButton.setBounds(19, 101, 83, 21);
+        createPdfButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ControlNomina.nominaEgin(izena.getText(),ordainketaPeriodoa.getText(),diruKantitatea.getText());
+            }
+        });
+        contentPane.setLayout(null);
 
-        add(new JLabel("Employee Name:"));
-        add(nameField);
-        add(new JLabel("Pay Period:"));
-        add(periodField);
-        add(new JLabel("Total Amount:"));
-        add(amountField);
-        add(createPdfButton);
+        JLabel label = new JLabel("Langilearen izena:");
+        label.setBounds(19, 5, 78, 13);
+        contentPane.add(label);
+        contentPane.add(izena);
+        izena.setMaximumSize(new Dimension(Integer.MAX_VALUE, izena.getPreferredSize().height));
+        
+        JLabel label_1 = new JLabel("Ordainketa periodoa:");
+        label_1.setBounds(19, 37, 52, 13);
+        contentPane.add(label_1);
+        contentPane.add(ordainketaPeriodoa);
+        ordainketaPeriodoa.setMaximumSize(new Dimension(Integer.MAX_VALUE, ordainketaPeriodoa.getPreferredSize().height));
 
-        setVisible(true);
+        JLabel label_2 = new JLabel("Diru totala:");
+        label_2.setBounds(19, 69, 66, 13);
+        contentPane.add(label_2);
+        contentPane.add(diruKantitatea);
+        diruKantitatea.setMaximumSize(new Dimension(Integer.MAX_VALUE, diruKantitatea.getPreferredSize().height));
+        
+        contentPane.add(createPdfButton);
     }
 
-    private void createPdf() {
-        String name = nameField.getText();
-        String period = periodField.getText();
-        String amount = amountField.getText();
-
-        try {
-            String path = "payroll.pdf";
-            PdfWriter writer = new PdfWriter(path);
-            PdfDocument pdf = new PdfDocument(writer);
-            Document document = new Document(pdf);
-
-            document.add(new Paragraph("Payroll Document"));
-            document.add(new Paragraph("Employee Name: " + name));
-            document.add(new Paragraph("Pay Period: " + period));
-            document.add(new Paragraph("Total Amount: $" + amount));
-
-            document.close();
-            JOptionPane.showMessageDialog(this, "PDF created successfully!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error creating PDF.");
-        }
-    }
-
-    public static void main(String[] args) {
-        new PayrollPdfCreator();
-    }
 }
 
