@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import Baneatu.Baneatu;
 public class Menua extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -39,6 +39,10 @@ public class Menua extends JFrame {
 		JButton Baneatu = new JButton("Baneatu");
 		Baneatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+					Baneatu baneatu = new Baneatu(Menua.this);
+					baneatu.setVisible(true);
+					Menua.this.setVisible(false);	
+				
 			}
 		});
 		Baneatu.setBounds(126, 44, 187, 21);
