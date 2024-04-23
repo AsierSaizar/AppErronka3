@@ -11,6 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import Conexioa.Conexioa;
+import WebErabiltzaileak.WebErabiltzaileak;
 
 public class ControlBaneatu {
 
@@ -64,13 +65,51 @@ public class ControlBaneatu {
 		}
 	}
 
-	public void baneatu(String id, String ezizena, String emaila, String pasahitza, int Dirua, boolean ban) {
+	public void baneatu(String id, String ezizena, String emaila, String pasahitza, int dirua, boolean ban) throws SQLException {
+		System.out.println(ban);
 		if (ban==false) {
-			System.out.println("falseee");
-		}else if (ban==true) {
-			System.out.println("trueeee");
+			System.out.println("baneatu gabeee");
+			WebErabiltzaileak e0 = new WebErabiltzaileak(ezizena, emaila, pasahitza, dirua, ban);
+			e0.baneatu();
+			e0.update();
+			
+			
+		}else{
+			System.out.println("baneatutaaaaaaa");
+			WebErabiltzaileak e1 = new WebErabiltzaileak(ezizena, emaila, pasahitza, dirua, ban);
+			e1.desBaneatu();
+			e1.update();
+			
 		}
 		
 	}
 	
-}
+	public void retrieveAndProcessRowData(int row, JTable table) throws SQLException {
+	    String rowId = table.getModel().getValueAt(row, 0).toString();
+	    String rowEzizena = table.getModel().getValueAt(row, 1).toString();
+	    String rowEmaila = table.getModel().getValueAt(row, 2).toString();
+	    String rowPasahitza = table.getModel().getValueAt(row, 3).toString();
+	    String rowDirua = table.getModel().getValueAt(row, 4).toString();
+	    String rowBan = table.getModel().getValueAt(row, 5).toString();
+	    
+	    System.out.println(rowBan);
+	    
+	    int dirua = Integer.valueOf(rowDirua);
+	    boolean ban = false;
+	    if (rowBan.equals("1")) {
+	    	System.out.println("aaaaaaaaaaaaaaaaa");
+	    	ban = true;
+	    	this.baneatu(rowId,rowEzizena,rowEmaila,rowPasahitza,dirua,ban);
+	    }else if (rowBan.equals("0")){
+	    	System.out.println("bbbbbbbbbbbbbbbbb");
+	    	ban = false;
+	    	this.baneatu(rowId,rowEzizena,rowEmaila,rowPasahitza,dirua,ban);
+	    }
+	    
+	    
+	    
+	    
+	    }
+	}
+	
+

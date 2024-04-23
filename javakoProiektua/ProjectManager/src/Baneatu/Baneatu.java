@@ -72,7 +72,12 @@ public class Baneatu extends JFrame {
 	    BaneatzekoBtn.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		int row = table.getSelectedRow();
-	    		retrieveAndProcessRowData(row);
+				try {
+					controlBaneatu.retrieveAndProcessRowData(row, table);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 	    		
 	    	}
 	    });
@@ -81,17 +86,6 @@ public class Baneatu extends JFrame {
 	    contentPane.add(BaneatzekoBtn);
 	}
 
-	private void retrieveAndProcessRowData(int row) {
-	    String rowId = table.getModel().getValueAt(row, 0).toString();
-	    String rowEzizena = table.getModel().getValueAt(row, 1).toString();
-	    String rowEmaila = table.getModel().getValueAt(row, 2).toString();
-	    String rowPasahitza = table.getModel().getValueAt(row, 3).toString();
-	    String rowDirua = table.getModel().getValueAt(row, 4).toString();
-	    String rowBan = table.getModel().getValueAt(row, 5).toString();
-	    int dirua = Integer.valueOf(rowDirua);
-	    boolean ban = Boolean.parseBoolean(rowBan);
-	    
-	    controlBaneatu.baneatu(rowId,rowEzizena,rowEmaila,rowPasahitza,dirua,ban);
-	}
+	
 
 }

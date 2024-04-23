@@ -1,6 +1,7 @@
 package Menua;
 import ControlMenua.ControlMenua;
 import Erabiltzaileak.Erabiltzaileak;
+import JokalariakSortu.JokalariakSortu;
 import LangileakGehitu.LangileakGehitu;
 import Nomina.Nomina;
 import Sarrera.Sarrera;
@@ -110,6 +111,9 @@ public class Menua extends JFrame {
 		JButton btnNewButton_2_1 = new JButton("Jokalariak sartu");
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JokalariakSortu jokalariaSortu = new JokalariakSortu(Menua.this);
+				jokalariaSortu.setVisible(true);
+				Menua.this.setVisible(false);
 			}
 		});
 		btnNewButton_2_1.setBounds(126, 137, 187, 21);
