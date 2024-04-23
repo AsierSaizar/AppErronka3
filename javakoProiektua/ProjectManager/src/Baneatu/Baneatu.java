@@ -58,7 +58,6 @@ public class Baneatu extends JFrame {
 	    		try {
 					controlBaneatu.taulaErakutsi(table);
 				} catch (SQLException e1) {
-					
 					e1.printStackTrace();
 				}
 				

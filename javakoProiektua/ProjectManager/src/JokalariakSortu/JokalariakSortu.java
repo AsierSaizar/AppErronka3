@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import ControlJokalariakSortu.ControlJokalariakSortu;
 import Menua.Menua;
 
 import javax.swing.JScrollPane;
@@ -16,12 +17,15 @@ import java.awt.Choice;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JTable;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
 
 public class JokalariakSortu extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -29,6 +33,7 @@ public class JokalariakSortu extends JFrame {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
+	private JTable table;
 
 
 
@@ -46,12 +51,11 @@ public class JokalariakSortu extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 23, 596, 279);
+		scrollPane.setBounds(10, 23, 596, 219);
 		contentPane.add(scrollPane);
 		
-		textField = new JTextField();
-		scrollPane.setViewportView(textField);
-		textField.setColumns(10);
+		table = new JTable();
+		scrollPane.setViewportView(table);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(10, 336, 96, 19);
@@ -138,5 +142,20 @@ public class JokalariakSortu extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setBounds(390, 379, 184, 50);
 		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Jokalariak Ikusi");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					ControlJokalariakSortu.taulaErakutsi(table);
+				} catch (SQLException e1) {
+					
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_1.setBounds(218, 252, 184, 50);
+		contentPane.add(btnNewButton_1);
 	}
 }
