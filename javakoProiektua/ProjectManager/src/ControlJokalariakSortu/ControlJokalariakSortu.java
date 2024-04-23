@@ -10,7 +10,9 @@ import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Administratzailea.Administratzailea;
 import Conexioa.Conexioa;
+import Jokalariak.Jokalariak;
 
 public class ControlJokalariakSortu {
 
@@ -66,5 +68,27 @@ public class ControlJokalariakSortu {
 		}
 		
 	}
+
+	public static void jokalariaSortu(String izen, String abizen, String posizioa, String puntuazioa, String taldea,
+			String herrialdea, String prezioa) throws SQLException {
+		// TODO Auto-generated method stub
+		Jokalariak j = new Jokalariak(izen, abizen, posizioa,puntuazioa, taldea, herrialdea, prezioa);
+		j.save();
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
