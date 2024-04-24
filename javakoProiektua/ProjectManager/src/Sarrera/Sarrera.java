@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class Sarrera extends JFrame {
 
@@ -107,7 +108,12 @@ public class Sarrera extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Proiektua");
-		lblNewLabel_2.setBounds(304, 82, 45, 13);
+		lblNewLabel_2.setBounds(304, 82, 67, 13);
 		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblKaixoooo = new JLabel("PROYECT MANAGER");
+		lblKaixoooo.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblKaixoooo.setBounds(129, 20, 297, 38);
+		contentPane.add(lblKaixoooo);
 	}
 }

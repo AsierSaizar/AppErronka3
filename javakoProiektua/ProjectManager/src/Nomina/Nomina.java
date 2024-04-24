@@ -21,6 +21,7 @@ public class Nomina extends JFrame {
     private JTextField ordainketaPeriodoa;
     private JTextField diruKantitatea;
     private JButton createPdfButton;
+    private JButton btnNewButton;
 
  
     public Nomina(Menua menua) {
@@ -31,14 +32,14 @@ public class Nomina extends JFrame {
         setContentPane(contentPane);
 
         izena = new JTextField();
-        izena.setBounds(5, 18, 426, 19);
+        izena.setBounds(128, 46, 159, 19);
         ordainketaPeriodoa = new JTextField();
-        ordainketaPeriodoa.setBounds(5, 50, 426, 19);
+        ordainketaPeriodoa.setBounds(128, 98, 159, 19);
         diruKantitatea = new JTextField();
-        diruKantitatea.setBounds(5, 82, 426, 19);
+        diruKantitatea.setBounds(128, 150, 159, 19);
 
         createPdfButton = new JButton("Nomina egin");
-        createPdfButton.setBounds(19, 101, 83, 21);
+        createPdfButton.setBounds(140, 207, 137, 21);
         createPdfButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ControlNomina.nominaEgin(izena.getText(),ordainketaPeriodoa.getText(),diruKantitatea.getText());
@@ -47,24 +48,35 @@ public class Nomina extends JFrame {
         contentPane.setLayout(null);
 
         JLabel label = new JLabel("Langilearen izena:");
-        label.setBounds(19, 5, 78, 13);
+        label.setBounds(142, 23, 121, 13);
         contentPane.add(label);
         contentPane.add(izena);
         izena.setMaximumSize(new Dimension(Integer.MAX_VALUE, izena.getPreferredSize().height));
         
         JLabel label_1 = new JLabel("Ordainketa periodoa:");
-        label_1.setBounds(19, 37, 52, 13);
+        label_1.setBounds(142, 75, 108, 13);
         contentPane.add(label_1);
         contentPane.add(ordainketaPeriodoa);
         ordainketaPeriodoa.setMaximumSize(new Dimension(Integer.MAX_VALUE, ordainketaPeriodoa.getPreferredSize().height));
 
         JLabel label_2 = new JLabel("Diru totala:");
-        label_2.setBounds(19, 69, 66, 13);
+        label_2.setBounds(142, 127, 108, 13);
         contentPane.add(label_2);
         contentPane.add(diruKantitatea);
         diruKantitatea.setMaximumSize(new Dimension(Integer.MAX_VALUE, diruKantitatea.getPreferredSize().height));
         
         contentPane.add(createPdfButton);
+        
+        btnNewButton = new JButton("Atzera");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+
+				menua.setVisible(true);
+				Nomina.this.setVisible(false);
+        	}
+        });
+        btnNewButton.setBounds(5, 232, 85, 21);
+        contentPane.add(btnNewButton);
     }
 
 }

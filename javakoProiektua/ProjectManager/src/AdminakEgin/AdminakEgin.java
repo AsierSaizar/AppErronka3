@@ -23,6 +23,7 @@ public class AdminakEgin extends JFrame {
 	private JTable table;
 	private JButton adminLangile;
 	private ControlAdminakEgin controlAdminEgin = new ControlAdminakEgin();
+	private JButton btnNewButton;
 	/**
 	 * Create the frame.
 	 * @param menua 
@@ -80,6 +81,17 @@ public class AdminakEgin extends JFrame {
         });
         adminLangile.setBounds(304, 87, 180, 38);
         contentPane.add(adminLangile);
+        
+        btnNewButton = new JButton("Atzera");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+
+				menua.setVisible(true);
+				AdminakEgin.this.setVisible(false);
+        	}
+        });
+        btnNewButton.setBounds(89, 305, 112, 26);
+        contentPane.add(btnNewButton);
 
         // Mostrar la ventana
         AdminakEgin.this.setVisible(true);

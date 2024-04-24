@@ -29,7 +29,7 @@ public class Menua extends JFrame {
 	 */
 	public Menua(Erabiltzaileak erabiltzailea) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 560, 367);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -45,7 +45,7 @@ public class Menua extends JFrame {
 				
 			}
 		});
-		Baneatu.setBounds(126, 44, 187, 21);
+		Baneatu.setBounds(174, 62, 187, 21);
 		contentPane.add(Baneatu);
 		
 		JButton btnNewButton_3 = new JButton("Langileak kontratatu");
@@ -62,7 +62,7 @@ public class Menua extends JFrame {
 				}
 			}
 		});
-		btnNewButton_3.setBounds(126, 165, 187, 21);
+		btnNewButton_3.setBounds(174, 183, 187, 21);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_5 = new JButton("Administratzaileak sortu");
@@ -79,15 +79,15 @@ public class Menua extends JFrame {
 				}
 			}
 		});
-		btnNewButton_5.setBounds(126, 227, 187, 21);
+		btnNewButton_5.setBounds(174, 245, 187, 21);
 		contentPane.add(btnNewButton_5);
 		
 		JLabel lblNewLabel = new JLabel("Administratzaileak");
-		lblNewLabel.setBounds(126, 130, 187, 13);
+		lblNewLabel.setBounds(174, 148, 187, 13);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Langileak");
-		lblNewLabel_1.setBounds(126, 21, 187, 13);
+		lblNewLabel_1.setBounds(174, 39, 187, 13);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnNewButton_2_1 = new JButton("Jokalariak sartu");
@@ -98,14 +98,14 @@ public class Menua extends JFrame {
 				Menua.this.setVisible(false);
 			}
 		});
-		btnNewButton_2_1.setBounds(126, 76, 187, 21);
+		btnNewButton_2_1.setBounds(174, 94, 187, 21);
 		contentPane.add(btnNewButton_2_1);
 		
 		
 		
 		
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Nomina egin");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		        System.out.println("Button clicked!"); // Añadir esta línea para depuración
@@ -121,7 +121,7 @@ public class Menua extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(126, 196, 187, 21);
+		btnNewButton.setBounds(174, 214, 187, 21);
 		contentPane.add(btnNewButton);
 	}
 }

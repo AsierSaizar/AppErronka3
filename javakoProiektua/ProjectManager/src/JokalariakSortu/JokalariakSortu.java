@@ -155,5 +155,16 @@ public class JokalariakSortu extends JFrame {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_1.setBounds(218, 252, 184, 50);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("Atzera");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				menua.setVisible(true);
+				JokalariakSortu.this.setVisible(false);
+			}
+		});
+		btnNewButton.setBounds(20, 252, 85, 21);
+		contentPane.add(btnNewButton);
 	}
 }

@@ -59,7 +59,7 @@ public class Baneatu extends JFrame {
 	    	}
 	    });
 	    taulaIkusiBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	    taulaIkusiBtn.setBounds(26, 304, 176, 48);
+	    taulaIkusiBtn.setBounds(150, 304, 176, 48);
 	    contentPane.add(taulaIkusiBtn);
 	    
 	    JButton BaneatzekoBtn = new JButton("Baneatu/Desbaneatu");
@@ -76,10 +76,17 @@ public class Baneatu extends JFrame {
 	    	}
 	    });
 	    BaneatzekoBtn.setFont(new Font("Tahoma", Font.PLAIN, 13));
-	    BaneatzekoBtn.setBounds(261, 304, 176, 48);
+	    BaneatzekoBtn.setBounds(371, 304, 176, 48);
 	    contentPane.add(BaneatzekoBtn);
+	    
+	    JButton btnNewButton = new JButton("Atzera");
+	    btnNewButton.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+				menua.setVisible(true);
+				Baneatu.this.setVisible(false);
+	    	}
+	    });
+	    btnNewButton.setBounds(26, 320, 85, 21);
+	    contentPane.add(btnNewButton);
 	}
-
-	
-
 }
