@@ -50,22 +50,6 @@ public class Menua extends JFrame {
 		Baneatu.setBounds(126, 44, 187, 21);
 		contentPane.add(Baneatu);
 		
-		JButton btnErosketenHistorialaIkusi = new JButton("Erosketen historiala ikusi");
-		btnErosketenHistorialaIkusi.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnErosketenHistorialaIkusi.setBounds(126, 75, 187, 21);
-		contentPane.add(btnErosketenHistorialaIkusi);
-		
-		JButton btnNewButton_2 = new JButton("Erabiltzaileak ikusi");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_2.setBounds(126, 106, 187, 21);
-		contentPane.add(btnNewButton_2);
-		
 		JButton btnNewButton_3 = new JButton("Langileak kontratatu");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -80,7 +64,7 @@ public class Menua extends JFrame {
 				}
 			}
 		});
-		btnNewButton_3.setBounds(126, 183, 187, 21);
+		btnNewButton_3.setBounds(126, 165, 187, 21);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_5 = new JButton("Administratzaileak sortu");
@@ -97,11 +81,11 @@ public class Menua extends JFrame {
 				}
 			}
 		});
-		btnNewButton_5.setBounds(126, 242, 187, 21);
+		btnNewButton_5.setBounds(126, 227, 187, 21);
 		contentPane.add(btnNewButton_5);
 		
 		JLabel lblNewLabel = new JLabel("Administratzaileak");
-		lblNewLabel.setBounds(126, 160, 187, 13);
+		lblNewLabel.setBounds(126, 130, 187, 13);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Langileak");
@@ -116,7 +100,7 @@ public class Menua extends JFrame {
 				Menua.this.setVisible(false);
 			}
 		});
-		btnNewButton_2_1.setBounds(126, 137, 187, 21);
+		btnNewButton_2_1.setBounds(126, 76, 187, 21);
 		contentPane.add(btnNewButton_2_1);
 		
 		
@@ -139,7 +123,7 @@ public class Menua extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(126, 214, 187, 21);
+		btnNewButton.setBounds(126, 196, 187, 21);
 		contentPane.add(btnNewButton);
 	}
 }
