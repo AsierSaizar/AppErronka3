@@ -1,15 +1,12 @@
 package Erabiltzaileak;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
 
-import Conexioa.Conexioa;
 import Langileak.Langileak;
 import Administratzailea.Administratzailea;
 
@@ -71,12 +68,12 @@ public abstract class Erabiltzaileak  {
 
 	public static ArrayList<Langileak> langileakLortu(Connection conexioa) throws SQLException {
 		ArrayList<Langileak> erabiltzialeak = new ArrayList<>();
-		int i=0;
+		
 		
 		Statement stat=conexioa.createStatement();   
         ResultSet res=stat.executeQuery("select * from erronka3.langileak;");
  
-        String[] array = new String[7];
+       
        
        
             while(res.next()) {

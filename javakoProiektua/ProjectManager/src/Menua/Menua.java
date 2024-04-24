@@ -4,9 +4,7 @@ import Erabiltzaileak.Erabiltzaileak;
 import JokalariakSortu.JokalariakSortu;
 import LangileakGehitu.LangileakGehitu;
 import Nomina.Nomina;
-import Sarrera.Sarrera;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

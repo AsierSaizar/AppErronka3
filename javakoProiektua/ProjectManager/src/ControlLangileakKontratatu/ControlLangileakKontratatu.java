@@ -1,15 +1,13 @@
 package ControlLangileakKontratatu;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
-import javax.swing.JOptionPane;
+import java.sql.SQLException;
+
+
+
 
 import Administratzailea.Administratzailea;
-import Conexioa.Conexioa;
+
 import Langileak.Langileak;
 
 public class ControlLangileakKontratatu {

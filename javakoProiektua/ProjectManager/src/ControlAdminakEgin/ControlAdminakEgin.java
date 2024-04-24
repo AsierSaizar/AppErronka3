@@ -2,10 +2,7 @@ package ControlAdminakEgin;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.swing.JTable;
@@ -63,11 +60,7 @@ public class ControlAdminakEgin {
 		}
 	}
 
-	public void adminBihurtu() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	public void adminLangileBihurtu( String rowNan,String rowPasahitza, String rowIzena,
 			String rowAbizena, String rowLanPostua, int proiektua) throws SQLException {
 		// TODO Auto-generated method stub

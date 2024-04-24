@@ -3,7 +3,6 @@ package ControlBaneatu;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -33,7 +32,6 @@ public class ControlBaneatu {
 	    	{
 	    	    Statement stat= conexioa.createStatement(); 
 	    	    ResultSet res=stat.executeQuery("select * from erronka3.weberabiltzaileak;");
-	    	    ResultSetMetaData rsmd = res.getMetaData();
 	     	    
 	    	 
 	    	   String[] array = new String[10];

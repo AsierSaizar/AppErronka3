@@ -1,6 +1,5 @@
 package JokalariakSortu;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,7 +12,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.Choice;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -40,6 +38,7 @@ public class JokalariakSortu extends JFrame {
 	 * Create the frame.
 	 * @param menua 
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public JokalariakSortu(Menua menua) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 630, 491);

@@ -1,11 +1,11 @@
 package AdminakEgin;
 
-import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import Menua.Menua;
@@ -14,10 +14,7 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import ControlAdminakEgin.ControlAdminakEgin;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
+
 
 public class AdminakEgin extends JFrame {
 

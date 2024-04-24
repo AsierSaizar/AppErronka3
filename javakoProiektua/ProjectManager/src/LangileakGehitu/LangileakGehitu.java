@@ -1,12 +1,10 @@
 package LangileakGehitu;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import AdminakEgin.AdminakEgin;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -18,7 +16,6 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import ControlLangileakKontratatu.ControlLangileakKontratatu;
-import ControlMenua.ControlMenua;
 import Menua.Menua;
 
 public class LangileakGehitu extends JFrame {

@@ -3,14 +3,12 @@ package ControlJokalariakSortu;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import Administratzailea.Administratzailea;
 import Conexioa.Conexioa;
 import Jokalariak.Jokalariak;
 
@@ -36,7 +34,6 @@ public class ControlJokalariakSortu {
 	    	{
 	    	    Statement stat= conexioa.createStatement(); 
 	    	    ResultSet res=stat.executeQuery("select * from erronka3.jokalariak;");
-	    	    ResultSetMetaData rsmd = res.getMetaData();
 	     	    
 	    	 
 	    	   String[] array = new String[10];
